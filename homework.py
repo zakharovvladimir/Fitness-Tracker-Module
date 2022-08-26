@@ -171,6 +171,7 @@ def read_package(workout_type: str, data: list) -> Training:
 
 
 def main(training: Training) -> InfoMessage:
+    
     """Главная функция."""
     info = Training.show_training_info(training)
     print(InfoMessage.get_message(info))
