@@ -56,8 +56,8 @@ class Training:
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
-        calories = ((self.R_COEFF_1 * self.get_mean_speed() - self.R_COEFF_2)
-        * self.weight / self.M_IN_KM * self.duration)
+        calories = ((self.R_COEFF_1 * self.get_mean_speed() - self.R_COEFF_2) 
+                    * self.weight / self.M_IN_KM * self.duration)
         return calories
 
     def show_training_info(self) -> InfoMessage:
@@ -79,11 +79,10 @@ class Running(Training):
     R_COEFF_2: int = 20
 
     def __init__(
-                 self,
-                 action: int,
-                 duration: float,
-                 weight: float,
-                 ) -> None:
+            self,
+            action: int,
+            duration: float,
+            weight: float) -> None:
         self.action = action
         self.duration = duration
         self.weight = weight
@@ -114,8 +113,8 @@ class SportsWalking(Training):
     def get_spent_calories(self) -> float:
         sw_calories = ((self.SW_COEFF_1 * self.weight
                         + (self.get_mean_speed() ** 2
-                        // self.height) * self.SW_COEFF_2
-                        * self.weight) * (self.duration * self.MINUTES))
+                           // self.height) * self.SW_COEFF_2
+                       * self.weight) * (self.duration * self.MINUTES))
         return sw_calories
 
 
@@ -154,10 +153,10 @@ def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     training_dict: Dict[str, Type[Training]]
     training_dict = {
-                     'RUN': Running,
-                     'WLK': SportsWalking,
-                     'SWM': Swimming
-                    }
+        'RUN': Running,
+        'WLK': SportsWalking,
+        'SWM': Swimming
+    }
     if workout_type not in training_dict:
         raise KeyError(f'{workout_type} неизвестна')
     else:
@@ -165,7 +164,6 @@ def read_package(workout_type: str, data: list) -> Training:
 
 
 def main(training: Training) -> InfoMessage:
-    
     """Главная функция."""
     info = Training.show_training_info(training)
     print(InfoMessage.get_message(info))
