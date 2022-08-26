@@ -75,8 +75,8 @@ class Training:
 class Running(Training):
 
     """Тренировка: бег."""
-    R_COEFF_1: int = 18
-    R_COEFF_2: int = 20
+    R_COEFF_1: int = 18  # Constant
+    R_COEFF_2: int = 20  # Constant
 
     def __init__(
             self,
@@ -98,8 +98,8 @@ class Running(Training):
 class SportsWalking(Training):
 
     """Тренировка: спортивная ходьба."""
-    SW_COEFF_1: float = 0.035
-    SW_COEFF_2: float = 0.029
+    SW_COEFF_1: float = 0.035  # Constant
+    SW_COEFF_2: float = 0.029  # Constant
 
     def __init__(self,
                  action: int,
