@@ -5,3 +5,6 @@ A fitness tracker software module that processes data for three types of trainin
 
 ### Author 
 Vladimir Zakharov // vladimir.zakharov.s@yandex.ru
+
+### License
+[MIT](https://choosealicense.com/licenses/mit/)
